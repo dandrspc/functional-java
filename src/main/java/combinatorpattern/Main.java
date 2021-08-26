@@ -1,8 +1,8 @@
-package conbinatorpattern;
+package combinatorpattern;
 
 import java.time.LocalDate;
 
-import static conbinatorpattern.CustomerRegistrationValidator.*;
+import static combinatorpattern.CustomerRegistrationValidator.*;
 
 public class Main {
     public static void main(String[] args) {
