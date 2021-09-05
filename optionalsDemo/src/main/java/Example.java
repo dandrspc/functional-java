@@ -1,12 +1,12 @@
 import java.util.Optional;
 
-public class Main {
+public class Example {
     public static void main(String[] args) {
 
         // empty()
         Optional<Object> empty = Optional.empty();
-
-        System.out.println("Is present? "  + empty.isPresent());
+        System.out.println("===========================");
+        System.out.println("Is present? " + empty.isPresent());
         System.out.println("Is empty? " + empty.isEmpty());
 
         // of()
@@ -19,6 +19,7 @@ public class Main {
         String orElse = hello
                 .map(String::toUpperCase)
                 .orElse("World");
+        System.out.println("\n===========================");
         System.out.println(orElse);
 
         // orElseGet(Supplier())
@@ -27,14 +28,21 @@ public class Main {
             // Extra computation if values is not null
             return "Computed Value";
         });
-
         System.out.println(orElseGet);
 
-        Optional<String> hello_ = Optional.ofNullable("Hello");
-        String orElse_ = hello_
+        String orElse_ = hello
                 .map(String::toUpperCase)
                 .orElseThrow(IllegalStateException::new);
         System.out.println(orElse_);
 
+        System.out.println("\n===========================");
+        System.out.println("If present");
+        hello.ifPresent(System.out::println);
+
+
+        System.out.println("\n===========================");
+        System.out.println("If present Or Else");
+        Optional<Object> word = Optional.ofNullable(null);
+        word.ifPresentOrElse(System.out::println,() -> {System.out.println("Word");});
     }
 }
